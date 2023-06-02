@@ -1,0 +1,129 @@
+<section class="product">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="form-group mt-3 mb-3">
+          <div class="form-head">
+            <div class="title ">
+              <h3>Employees</h3>
+            </div>
+            <div class="search">
+              <input type="text" class="form-control" placeholder="search..." [(ngModel)]="searchTarget" />
+            </div>
+            <div class="filter">
+              <button class="btn btn-success" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                  Filter
+              </button>
+          </div>
+          </div>
+          <div class="overflow-auto">
+            <table class="styled-table mt-3 w-100">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Employeement Date</th>
+                  <th>Salary</th>
+                  <th>Experience</th>
+                  <th>Department</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr [@employeeAnimation]
+                  *ngFor="let employee of employees | employeeSearch : searchTarget; let index = index; trackBy: trackById">
+                  <td>
+                    <div class="mt-3 text-nowrap">
+                      {{ employee.name}}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mt-3 text-nowrap">
+                      {{ employee.employmentDate | date }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mt-3 text-nowrap">
+                      {{ employee.salary }} $
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mt-3 text-nowrap">
+                      {{ employee.experience }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mt-3 text-nowrap">
+                      {{ employee.department }}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <ng-container>
+            <app-pagination [total]="total" (pageIndexChange)="onPageChange($event)" #p></app-pagination>
+          </ng-container>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- filter  -->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas-header border-bottom pb-2">
+    <h5 class="offcanvas-title fw-bold" id="offcanvasScrollingLabel">Filter</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+</div>
+<div class="offcanvas-body p-0">
+    <div class="accordion accordion-flush p-3" id="accordionFlushExample2">
+
+
+      <form [formGroup]="filterForm">
+        <div class="form-group mb-3">
+          <label for="name">Name </label>
+          <input class="form-control mt-2" id="name" type="text" formControlName="name" placeholder="Name...">
+        </div>
+        <div class="form-group mb-3">
+          <label for="employmentDate">Employment Date </label>
+          <input class="form-control mt-2" id="employmentDate" type="date" formControlName="employmentDate" placeholder="Employment Date...">
+        </div>
+        <div class="form-group mb-3">
+          <label for="department">Department </label>
+          <select class="form-control mt-2" formControlName="department" name="department" id="department">
+            <option disabled value="">choose department...</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="salary">Salary </label>
+          <input class="form-control mt-2" id="salary" type="number" min="0" formControlName="salary" placeholder="Salary...">
+        </div>
+        <div class="form-group mb-3">
+          <label for="experience">Experience </label>
+          <select class="form-control mt-2" formControlName="experience" name="experience" id="experience">
+            <option disabled value="">choose experience...</option>
+            <option value="Less Than a Year">Less Than a Year</option>
+            <option value="From 1-3 Year">From 1-3 Year</option>
+            <option value="3 Years or above">3 Years or above</option>
+
+          </select>
+        </div> 
+      </form>
+        
+
+        <div class="d-flex justify-content-center w-100 mt-5">
+            <button class="btn btn-cancel me-3"
+                (click)="clearFilters()">Clear</button>
+            <button class="btn btn-save" (click)="applySideFilters()"
+                [disabled]="filterDisabled()">Filter</button>
+        </div>
+    </div>
+</div>
+</div>

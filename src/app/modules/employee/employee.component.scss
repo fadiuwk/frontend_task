@@ -1,0 +1,107 @@
+@import "src/assets/scss/variable.scss";
+
+a {
+    cursor: pointer;
+}
+
+.form-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    .title {
+        flex: 1 0 60px;
+    }
+    .search {
+        flex: 1 0 130px;
+    }
+    .btn-success {
+        background-color: #009879;
+    }
+}
+.btn-save {
+    background-color: #2b9348 !important;
+    color: #fff !important;
+}
+
+.img-product {
+    width: 30px;
+    height: 30px;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+    display: none !important;
+}
+
+::ng-deep .mat-paginator-range-label {
+    display: none !important;
+}
+
+.add-product {
+    min-width: 115px;
+    margin-left: 7px;
+    margin-right: 0;
+
+    &:lang(ar) {
+        margin-right: 7px;
+        margin-left: 0;
+    }
+    background-color: $greenBasicColor;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: $greenBasicColor;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    &:lang(ar) {
+        text-align: right !important;
+    }
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid $greenBasicColor;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.btn-edit {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    cursor: pointer;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    height: 36px;
+    line-height: 27px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: pre;
+}

@@ -1,0 +1,10 @@
+<div class="pagination-wrapper text-end">
+
+    <p-paginator 
+        [rows]="limit" 
+        [totalRecords]="total" 
+        [showFirstLastIcon]="false" 
+        (onPageChange)="onPageChange($event)"
+        #pp
+    ></p-paginator>
+</div>

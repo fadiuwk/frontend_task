@@ -1,0 +1,43 @@
+:host::ng-deep .p-paginator {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 2px;
+  }
+  :host::ng-deep .p-dropdown {
+    border: none;
+    height: 3.3rem;
+    margin: 1px 0;
+    margin-right: 30px;
+    margin-left: 15px;
+  }
+  :host::ng-deep .p-dropdown .p-dropdown-label {
+    margin-top: 5px;
+  }
+  :host::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #ffd400;
+    border-color: #ffd400;
+    color: #000;
+  }
+  :host::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight,
+  :host::ng-deep .p-paginator .p-paginator-pages .p-paginator-page,
+  :host::ng-deep .p-paginator .p-paginator-next,
+  :host::ng-deep .p-paginator .p-paginator-prev {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+  }
+  
+  :host::ng-deep .p-paginator .p-paginator-next,
+  :host::ng-deep .p-paginator .p-paginator-prev {
+    &:lang(ar) {
+      transform: rotate(180deg);
+    }
+  }
+  
+  .pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+  }
+  
